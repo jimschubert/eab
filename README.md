@@ -35,9 +35,27 @@ grunt karma:unit
 ```
 
 *End-to-end test angular app*
+Start the app in one terminal
+```Bash
+npm start
+```
+Execute tests against running app
 ```Bash
 grunt karma:e2e
 ```
+
+*Run all express.js and angular.js unit tests*
+```Bash
+grunt nodeunit karma:unit
+```
+**or**
+```Bash
+npm test
+```
+
+Code coverage is enabled by default. To view coverage reports, open `./coverage` in your file chooser. Coverage reports
+can be found under directories by browser name. Open the `index.html` file in each directory.  Changing the coverage type
+in `config/karma.conf.js` will affect these output files.
 
 ### Run jshint on app
 

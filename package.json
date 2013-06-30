@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "node src/app.js",
-    "test": "grunt nodeunit"
+    "test": "grunt nodeunit karma:unit"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.1.1",

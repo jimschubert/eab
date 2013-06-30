@@ -37,10 +37,12 @@ module.exports = function (grunt) {
         },
         karma: {
             unit: {
-                configFile: 'config/karma.conf.js'
+                configFile: 'config/karma.conf.js',
+                singleRun: true
             },
             e2e: {
-                configFile: 'config/karma-e2e.conf.js'
+                configFile: 'config/karma-e2e.conf.js',
+                singleRun: true
             }
         }
     });
@@ -51,7 +53,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-karma');
 
-    // Default task, note karma:unit is singleRun, while karma:e2e is watch (continuous)
-    grunt.registerTask('default', ['jshint', 'nodeunit', 'karma:unit']);
+    // note: to run karma in continuous (autowatch) mode, run it directly:
+    // unit tests:
+    //      karma start config/karma.conf.js
+    // e2e tests:
+    //      karma start config/karma-e2e.conf.js
+    grunt.registerTask('default', ['jshint', 'nodeunit', 'karma']);
 
 };

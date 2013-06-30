@@ -48,3 +48,6 @@ Icon
 Session.vim
 .netrwhist
 *~
+
+### Project-specific
+coverage
