@@ -1,0 +1,13 @@
+div.row.span12(ng-controller="ButtonsCtrl")
+    h1 #{page}
+    p This is a boilerplate application for Express.js and Angular.js.
+
+    p As an example, this partial view (located at /views/partials/about.jade)
+    | is handled by ButtonsCtrl and is a mixture of angular-seed and angular-ui bootstrap examples
+    p For more examples, see <a href="http://angular-ui.github.io/bootstrap/" title="angular-ui bootstrap">angular-ui bootstrap</a>
+    ul.inline
+        li: div.btn.btn-primary(ng-click="load('partial/view1')") view1
+        li: div.btn.btn-primary(ng-click="load('partial/view2')") view2
+        li: div.btn.btn-primary(ng-click="load('partial/buttons')") buttons
+
+    div(id="contact-contents", compile="contents")
