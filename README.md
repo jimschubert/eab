@@ -63,9 +63,13 @@ Licensed under the MIT license.
 
 ## Other Licenses
 
-Bootstrap: http://www.apache.org/licenses/LICENSE-2.0
-jQuery: http://jquery.org/license
-Modernizr: http://modernizr.com/license/
-angular.js: https://github.com/angular/angular.js/blob/master/LICENSE
+Bootstrap: http://www.apache.org/licenses/LICENSE-2.0  
+
+jQuery: http://jquery.org/license  
+
+Modernizr: http://modernizr.com/license/  
+
+angular.js: https://github.com/angular/angular.js/blob/master/LICENSE  
+
 angular-ui/bootstrap: https://github.com/angular-ui/bootstrap/blob/master/LICENSE
 
