@@ -51,3 +51,5 @@ Session.vim
 
 ### Project-specific
 coverage
+!.jshintrc
+
