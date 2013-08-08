@@ -184,5 +184,5 @@
     "white": false,
 
     "predef": "additional predefined global variables",
-    "predef": [ ]
+    "predef": ["angular","describe","it"]
 }

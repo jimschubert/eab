@@ -4,15 +4,15 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives', 
         "use strict";
 
         $routeProvider.when('/', {
-            templateUrl: '/partial/index',
+            templateUrl: '/partials/index.html',
             controller: 'IndexCtrl'
         });
         $routeProvider.when('/contact', {
-            templateUrl: '/partial/contact',
+            templateUrl: '/partials/contact.html',
             controller: 'PagesCtrl'
         });
         $routeProvider.when('/about', {
-            templateUrl: '/partial/about',
+            templateUrl: '/partials/about.html',
             controller: 'PagesCtrl'
         });
     }]);

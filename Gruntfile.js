@@ -1,11 +1,19 @@
 'use strict';
+var path = require('path');
 
 module.exports = function (grunt) {
 
+    var port = 3020;
+
     // Project configuration.
     grunt.initConfig({
-        nodeunit: {
-            files: ['test/**/*_test.js']
+        mochacli: {
+            options: {
+                require: [],
+                reporter: 'spec',
+                bail: true
+            },
+            all:['test/**/*_test.js']
         },
         jshint: {
             options: {
@@ -40,24 +48,63 @@ module.exports = function (grunt) {
                 configFile: 'config/karma.conf.js',
                 singleRun: true
             },
+
+            watch: {
+                configFile: 'config/karma.conf.js',
+                singleRun: false,
+                autoWatch: true,
+                browsers: ['PhantomJS']
+            },
+
             e2e: {
                 configFile: 'config/karma-e2e.conf.js',
-                singleRun: true
+                singleRun: true,
+                autoWatch: false,
+                proxies: {
+                    '/': 'http://localhost:' + port + '/'
+                }
+            }
+        },
+        express: {
+            server: {
+                options: {
+                    hostname: 'localhost',
+                    port: port,
+                    bases: path.resolve('./src/public'),
+                    server: path.resolve('./src/app')
+                }
+            }
+        },
+        env: {
+            options: {
+                //Shared Options Hash
+            },
+            test: {
+                NODE_ENV: 'test'
+            },
+            dev: {
+                NODE_ENV: 'development'
+            },
+            build: {
+                NODE_ENV: 'production'
             }
         }
     });
 
     // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-contrib-nodeunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-express');
+    grunt.loadNpmTasks('grunt-env');
+    grunt.loadNpmTasks('grunt-mocha-cli');
 
     // note: to run karma in continuous (autowatch) mode, run it directly:
     // unit tests:
     //      karma start config/karma.conf.js
     // e2e tests:
     //      karma start config/karma-e2e.conf.js
-    grunt.registerTask('default', ['jshint', 'nodeunit', 'karma']);
-
+    grunt.registerTask('default', ['env:test', 'jshint:app', 'test', 'e2e']);
+    grunt.registerTask('e2e', ['env:test', 'express', 'karma:e2e']);
+    grunt.registerTask('test', ['env:test', 'mochacli:all', 'karma:unit']);
 };

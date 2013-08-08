@@ -5,19 +5,11 @@ A boilerplate application for express.js, angular.js, and Twitter's bootstrap (v
 ## Getting Started
 __note__ depending on your system configuration, you may need to prepend `sudo` to `npm install -g` global installs below.
 
-Install grunt:
-
-```Bash
-npm install -g grunt
-npm install -g grunt-cli
-```
-
 Install application dependencies:
 
 ```Bash
+npm install -g grunt grunt-cli karma jshint
 npm install -d
-npm install -g karma
-npm install -g jshint
 ```
 
 Run the app with `npm start`.

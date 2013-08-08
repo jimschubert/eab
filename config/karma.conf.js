@@ -1,8 +1,8 @@
 basePath = '../';
 
 files = [
-    JASMINE,
-    JASMINE_ADAPTER,
+    MOCHA,
+    MOCHA_ADAPTER,
     'src/public/javascripts/vendor/jquery-1.9.1.min.js',
     'src/public/javascripts/vendor/angular/angular.js',
     'src/public/javascripts/vendor/angular/angular-*.js',
@@ -24,7 +24,7 @@ autoWatch = true;
 
 // for PhantomJS, see install instructions: http://phantomjs.org/download.html
 // also see: http://codecuriosity.com/blog/2013/01/30/install-phantomjs-on-ubuntu/
-browsers = ['PhantomJS'];
+browsers = ['Chrome'];
 
 junitReporter = {
     outputFile: 'test_out/unit.xml',
