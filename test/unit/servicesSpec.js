@@ -1,6 +1,6 @@
 'use strict';
 
-/* jasmine specs for services go here */
+var expect = chai.expect;
 
 describe('service', function() {
   beforeEach(module('myApp.services'));
@@ -8,7 +8,7 @@ describe('service', function() {
 
   describe('version', function() {
     it('should return current version', inject(function(version) {
-      expect(version).toEqual('0.1');
+      expect(version).to.equal('0.1');
     }));
   });
 });
